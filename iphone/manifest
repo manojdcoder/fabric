@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: Crashlytics
+author: Manoj Kumar
+license: MIT
+copyright: @ 2015
+
+# these should not be edited
+name: crashlytics
+moduleid: ti.crashlytics
+guid: a77fedda-4ecf-4103-b6e2-00af79baab5a
+platform: iphone
+minsdk: 3.5.1.GA
