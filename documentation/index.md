@@ -1,39 +1,41 @@
-# crashlytics Module
+#Crashlytics
 
 ## Description
 
-TODO: Enter your module description here
-
-## Accessing the crashlytics Module
-
-To access this module from JavaScript, you would do the following:
-
-    var crashlytics = require("ti.crashlytics");
-
-The crashlytics variable is a reference to the Module object.
-
-## Reference
-
-TODO: If your module has an API, you should document
-the reference here.
-
-### crashlytics.function
-
-TODO: This is an example of a module function.
-
-### crashlytics.property
-
-TODO: This is an example of a module property.
+Add Twitter Fabric / Crashlytics to your app
 
 ## Usage
 
-TODO: Enter your usage example here
+```javascript
+var win = Ti.UI.createWindow({
+	backgroundColor : "white"
+});
 
-## Author
+win.open();
 
-TODO: Enter your author name, email and other contact
-details you want to share here.
+var crashlytics = require("ti.crashlytics");
+crashlytics.init("API_KEY");
+crashlytics.setDebugMode(false);
 
-## License
+crashlytics.setUserIdentifier("tirocks");
+crashlytics.setUserName("titanium");
+crashlytics.setUserEmail("ti@appc.com");
 
-TODO: Enter your license/legal information here.
+crashlytics.setObject("myObj", {
+	name : "Appcelerator",
+	product : "Titanium"
+});
+crashlytics.setInt("myInt", 24);
+crashlytics.setBool("myBool", true);
+crashlytics.setFloat("myFloat", 24.25);
+
+var button = Ti.UI.createButton({
+	title : "Crash App"
+});
+button.addEventListener("click", function(e) {
+	crashlytics.leaveBreadcrumb("app is crashing now through crash method");
+	crashlytics.crash();
+});
+
+win.add(button);
+```

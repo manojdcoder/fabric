@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: Crashlytics
+author: Manoj Kumar
+license: MIT
+copyright: @ 2015
+
+# these should not be edited
+name: crashlytics
+moduleid: ti.crashlytics
+guid: 0ef8a25f-3b6c-4610-8141-5468e7af361b
+platform: android
+minsdk: 3.5.1.GA
