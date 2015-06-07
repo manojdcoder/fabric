@@ -1,0 +1,16 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name CrashlyticsBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "ti.crashlytics.CrashlyticsModule.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+ti.crashlytics.CrashlyticsModule, ::ti::crashlytics::CrashlyticsModule::bindProxy, ::ti::crashlytics::CrashlyticsModule::dispose
+%%

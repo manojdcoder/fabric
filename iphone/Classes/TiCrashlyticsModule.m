@@ -76,6 +76,11 @@
     [Crashlytics startWithAPIKey:apiKey];
 }
 
+-(NSString*)version
+{
+    return [[Crashlytics sharedInstance] version];
+}
+
 -(void)setDebugMode:(id)value
 {
     [[Crashlytics sharedInstance] setDebugMode:[TiUtils boolValue:value]];
