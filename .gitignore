@@ -1,0 +1,4 @@
+# Build folder and log file
+build/
+iphone/build/
+build.log
