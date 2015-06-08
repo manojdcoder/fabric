@@ -7,7 +7,6 @@ Add Twitter Fabric / Crashlytics to your app
 ## Usage
 
 ```javascript
-var isIOS = Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
 
 var win = Ti.UI.createWindow({
 	backgroundColor : "white"
@@ -17,7 +16,7 @@ win.open();
 
 var crashlytics = require("ti.crashlytics");
 
-if (isIOS) {
+if (OS_IOS) {
 	crashlytics.setDebugMode(false);
 	crashlytics.init("API_KEY");
 } else {
@@ -44,14 +43,14 @@ crashlytics.setInt("myInt", 24);
 crashlytics.setBool("myBool", true);
 crashlytics.setFloat("myFloat", 24.25);
 
-if (isIOS) {
+if (OS_IOS) {
 	crashlytics.setObject("myObj", {
 		name : "Appcelerator",
 		product : "Titanium"
 	});
 }
 
-if (!isIOS) {
+if (!OS_IOS) {
 	crashlytics.setString("myString", "I'm only with android");
 	crashlytics.setDouble("myDouble", 92.2425);
 	try {
