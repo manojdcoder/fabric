@@ -1,4 +1,5 @@
 # Build folder and log file
+bin/
 build/
 iphone/build/
 build.log
