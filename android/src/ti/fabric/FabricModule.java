@@ -6,7 +6,9 @@
  * Please see the LICENSE included with this distribution for details.
  *
  */
-package ti.crashlytics;
+package ti.fabric;
+
+import io.fabric.sdk.android.Fabric;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
@@ -16,15 +18,14 @@ import org.appcelerator.kroll.common.Log;
 
 import com.crashlytics.android.Crashlytics;
 
-import io.fabric.sdk.android.Fabric;
-
-@Kroll.module(name="Crashlytics", id="ti.crashlytics")
-public class CrashlyticsModule extends KrollModule
+@Kroll.module(name="Fabric", id="ti.fabric")
+public class FabricModule extends KrollModule
 {
-	// Standard Debugging variables
-	private static final String LCAT = "CrashlyticsModule";
 
-	public CrashlyticsModule()
+	// Standard Debugging variables
+	private static final String LCAT = "FabricModule";
+
+	public FabricModule()
 	{
 		super();
 	}
@@ -35,7 +36,7 @@ public class CrashlyticsModule extends KrollModule
 		Log.d(LCAT, "inside onAppCreate");
 		// put module init code that needs to run when the application is created
 	}
-	
+
 	@Kroll.method
 	public void init()
 	{
@@ -116,3 +117,4 @@ public class CrashlyticsModule extends KrollModule
 		Crashlytics.getInstance().core.setString(key, TiConvert.toString(value));
 	}
 }
+

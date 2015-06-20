@@ -22,13 +22,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		24DD6CF91134B3F500162E58 /* TiCrashlyticsModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiCrashlyticsModule.h */; };
-		24DD6CFA1134B3F500162E58 /* TiCrashlyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiCrashlyticsModule.m */; };
-		24DE9E1111C5FE74003F90F6 /* TiCrashlyticsModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiCrashlyticsModuleAssets.h */; };
-		24DE9E1211C5FE74003F90F6 /* TiCrashlyticsModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiCrashlyticsModuleAssets.m */; };
-		43D3337B1B22FCBE00266322 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D333791B22FCBE00266322 /* Crashlytics.framework */; };
-		43D3337C1B22FCBF00266322 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D3337A1B22FCBE00266322 /* Fabric.framework */; };
-		AA747D9F0F9514B9006C5449 /* TiCrashlytics_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiCrashlytics_Prefix.pch */; };
+		24DD6CF91134B3F500162E58 /* TiFabricModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiFabricModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiFabricModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiFabricModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiFabricModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiFabricModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiFabricModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiFabricModuleAssets.m */; };
+		4350A2B71B2E069F00E1CDE9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4350A2B51B2E069F00E1CDE9 /* Crashlytics.framework */; };
+		4350A2B81B2E069F00E1CDE9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4350A2B61B2E069F00E1CDE9 /* Fabric.framework */; };
+		4350A2BF1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 4350A2BD1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h */; };
+		4350A2C01B2E0D6700E1CDE9 /* TiCrashlyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */; };
+		AA747D9F0F9514B9006C5449 /* TiFabric_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiFabric_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,21 +40,23 @@
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = crashlytics;
+			remoteInfo = fabric;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24DD6CF71134B3F500162E58 /* TiCrashlyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCrashlyticsModule.h; path = Classes/TiCrashlyticsModule.h; sourceTree = "<group>"; };
-		24DD6CF81134B3F500162E58 /* TiCrashlyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCrashlyticsModule.m; path = Classes/TiCrashlyticsModule.m; sourceTree = "<group>"; };
+		24DD6CF71134B3F500162E58 /* TiFabricModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiFabricModule.h; path = Classes/TiFabricModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiFabricModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiFabricModule.m; path = Classes/TiFabricModule.m; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
-		24DE9E0F11C5FE74003F90F6 /* TiCrashlyticsModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCrashlyticsModuleAssets.h; path = Classes/TiCrashlyticsModuleAssets.h; sourceTree = "<group>"; };
-		24DE9E1011C5FE74003F90F6 /* TiCrashlyticsModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCrashlyticsModuleAssets.m; path = Classes/TiCrashlyticsModuleAssets.m; sourceTree = "<group>"; };
-		43D333791B22FCBE00266322 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = platform/Crashlytics.framework; sourceTree = "<group>"; };
-		43D3337A1B22FCBE00266322 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = platform/Fabric.framework; sourceTree = "<group>"; };
-		AA747D9E0F9514B9006C5449 /* TiCrashlytics_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiCrashlytics_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		24DE9E0F11C5FE74003F90F6 /* TiFabricModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiFabricModuleAssets.h; path = Classes/TiFabricModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiFabricModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiFabricModuleAssets.m; path = Classes/TiFabricModuleAssets.m; sourceTree = "<group>"; };
+		4350A2B51B2E069F00E1CDE9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = platform/Crashlytics.framework; sourceTree = "<group>"; };
+		4350A2B61B2E069F00E1CDE9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = platform/Fabric.framework; sourceTree = "<group>"; };
+		4350A2BD1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCrashlyticsModule.h; path = Classes/TiCrashlyticsModule.h; sourceTree = "<group>"; };
+		4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCrashlyticsModule.m; path = Classes/TiCrashlyticsModule.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiFabric_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiFabric_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libTiCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiCrashlytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libTiFabric.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiFabric.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43D3337B1B22FCBE00266322 /* Crashlytics.framework in Frameworks */,
-				43D3337C1B22FCBF00266322 /* Fabric.framework in Frameworks */,
+				4350A2B71B2E069F00E1CDE9 /* Crashlytics.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				4350A2B81B2E069F00E1CDE9 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,22 +76,22 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libTiCrashlytics.a */,
+				D2AAC07E0554694100DB518D /* libTiFabric.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* crashlytics */ = {
+		0867D691FE84028FC02AAC07 /* fabric */ = {
 			isa = PBXGroup;
 			children = (
-				43D333791B22FCBE00266322 /* Crashlytics.framework */,
-				43D3337A1B22FCBE00266322 /* Fabric.framework */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				4350A2B51B2E069F00E1CDE9 /* Crashlytics.framework */,
+				4350A2B61B2E069F00E1CDE9 /* Fabric.framework */,
 			);
-			name = crashlytics;
+			name = fabric;
 			sourceTree = "<group>";
 		};
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
@@ -101,10 +105,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				24DE9E0F11C5FE74003F90F6 /* TiCrashlyticsModuleAssets.h */,
-				24DE9E1011C5FE74003F90F6 /* TiCrashlyticsModuleAssets.m */,
-				24DD6CF71134B3F500162E58 /* TiCrashlyticsModule.h */,
-				24DD6CF81134B3F500162E58 /* TiCrashlyticsModule.m */,
+				24DE9E0F11C5FE74003F90F6 /* TiFabricModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiFabricModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiFabricModule.h */,
+				24DD6CF81134B3F500162E58 /* TiFabricModule.m */,
+				4350A2BD1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h */,
+				4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -112,7 +118,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AA747D9E0F9514B9006C5449 /* TiCrashlytics_Prefix.pch */,
+				AA747D9E0F9514B9006C5449 /* TiFabric_Prefix.pch */,
 				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
 			);
 			name = "Other Sources";
@@ -125,18 +131,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* TiCrashlytics_Prefix.pch in Headers */,
-				24DD6CF91134B3F500162E58 /* TiCrashlyticsModule.h in Headers */,
-				24DE9E1111C5FE74003F90F6 /* TiCrashlyticsModuleAssets.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* TiFabric_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* TiFabricModule.h in Headers */,
+				4350A2BF1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiFabricModuleAssets.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* crashlytics */ = {
+		D2AAC07D0554694100DB518D /* fabric */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "crashlytics" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "fabric" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -146,9 +153,9 @@
 			);
 			dependencies = (
 			);
-			name = crashlytics;
-			productName = crashlytics;
-			productReference = D2AAC07E0554694100DB518D /* libTiCrashlytics.a */;
+			name = fabric;
+			productName = fabric;
+			productReference = D2AAC07E0554694100DB518D /* libTiFabric.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -159,7 +166,7 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 			};
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "crashlytics" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "fabric" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -169,12 +176,12 @@
 				French,
 				German,
 			);
-			mainGroup = 0867D691FE84028FC02AAC07 /* crashlytics */;
+			mainGroup = 0867D691FE84028FC02AAC07 /* fabric */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* crashlytics */,
+				D2AAC07D0554694100DB518D /* fabric */,
 				24416B8111C4CA220047AFDD /* Build & Test */,
 			);
 		};
@@ -201,8 +208,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24DD6CFA1134B3F500162E58 /* TiCrashlyticsModule.m in Sources */,
-				24DE9E1211C5FE74003F90F6 /* TiCrashlyticsModuleAssets.m in Sources */,
+				4350A2C01B2E0D6700E1CDE9 /* TiCrashlyticsModule.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* TiFabricModule.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiFabricModuleAssets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +219,7 @@
 /* Begin PBXTargetDependency section */
 		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2AAC07D0554694100DB518D /* crashlytics */;
+			target = D2AAC07D0554694100DB518D /* fabric */;
 			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -223,7 +231,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DSTROOT = /tmp/TiCrashlytics.dst;
+				DSTROOT = /tmp/TiFabric.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/platform",
@@ -231,7 +239,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TiCrashlytics_Prefix.pch;
+				GCC_PREFIX_HEADER = TiFabric_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -251,7 +259,7 @@
 					"-DTI_POST_1_2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TiCrashlytics;
+				PRODUCT_NAME = TiFabric;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = NO;
@@ -265,7 +273,7 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				DSTROOT = /tmp/TiCrashlytics.dst;
+				DSTROOT = /tmp/TiFabric.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/platform",
@@ -273,7 +281,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TiCrashlytics_Prefix.pch;
+				GCC_PREFIX_HEADER = TiFabric_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -290,7 +298,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TiCrashlytics;
+				PRODUCT_NAME = TiFabric;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -304,11 +312,11 @@
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DSTROOT = /tmp/TiCrashlytics.dst;
+				DSTROOT = /tmp/TiFabric.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TiCrashlytics_Prefix.pch;
+				GCC_PREFIX_HEADER = TiFabric_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -327,7 +335,7 @@
 					"-DTI_POST_1_2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TiCrashlytics;
+				PRODUCT_NAME = TiFabric;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = NO;
@@ -342,11 +350,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				DSTROOT = /tmp/TiCrashlytics.dst;
+				DSTROOT = /tmp/TiFabric.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TiCrashlytics_Prefix.pch;
+				GCC_PREFIX_HEADER = TiFabric_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
@@ -362,7 +370,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = TiCrashlytics;
+				PRODUCT_NAME = TiFabric;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -395,7 +403,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "crashlytics" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "fabric" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
@@ -404,7 +412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "crashlytics" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "fabric" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,

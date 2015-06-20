@@ -12,4 +12,10 @@
 	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-classes.jar"/>
 	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-core-classes.jar"/>
 	<classpathentry kind="lib" path="android/lib/io-fabric-sdk-android_fabric-classes.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

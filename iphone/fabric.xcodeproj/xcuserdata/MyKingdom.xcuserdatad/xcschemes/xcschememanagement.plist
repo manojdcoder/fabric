@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>crashlytics.xcscheme</key>
+		<key>fabric.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

@@ -1,11 +1,11 @@
 /**
  * This is a generated file. Do not edit or your changes will be lost
  */
-#import "TiCrashlyticsModuleAssets.h"
+#import "TiFabricModuleAssets.h"
 
 extern NSData* filterDataInRange(NSData* thedata, NSRange range);
 
-@implementation TiCrashlyticsModuleAssets
+@implementation TiFabricModuleAssets
 
 - (NSData*) moduleAsset
 {

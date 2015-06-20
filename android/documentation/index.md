@@ -1,73 +1,39 @@
-#Crashlytics
+# fabric Module
 
 ## Description
 
-Add Twitter Fabric / Crashlytics to your app
+TODO: Enter your module description here
+
+## Accessing the fabric Module
+
+To access this module from JavaScript, you would do the following:
+
+    var fabric = require("ti.fabric");
+
+The fabric variable is a reference to the Module object.
+
+## Reference
+
+TODO: If your module has an API, you should document
+the reference here.
+
+### fabric.function
+
+TODO: This is an example of a module function.
+
+### fabric.property
+
+TODO: This is an example of a module property.
 
 ## Usage
 
-```javascript
-var isIOS = Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
+TODO: Enter your usage example here
 
-var win = Ti.UI.createWindow({
-	backgroundColor : "white"
-});
+## Author
 
-win.open();
+TODO: Enter your author name, email and other contact
+details you want to share here.
 
-var crashlytics = require("ti.crashlytics");
+## License
 
-if (isIOS) {
-	crashlytics.setDebugMode(false);
-	crashlytics.init("API_KEY");
-} else {
-	/**
-	 * Key should be set as meta data in manifest section of tiapp.xml
-	 * <android xmlns:android="http://schemas.android.com/apk/res/android">
-	 *   <manifest>
-	 *       <application>
-	 *       	<meta-data android:name="io.fabric.ApiKey" android:value="API_KEY"/>
-	 *       </application>
-	 *   </manifest>
-	 * </android>
-	 **/
-	crashlytics.init();
-}
-
-Ti.API.info("Crashlytics Version : " + crashlytics.version);
-
-crashlytics.setUserIdentifier("tirocks");
-crashlytics.setUserName("titanium");
-crashlytics.setUserEmail("ti@appc.com");
-
-crashlytics.setInt("myInt", 24);
-crashlytics.setBool("myBool", true);
-crashlytics.setFloat("myFloat", 24.25);
-
-if (isIOS) {
-	crashlytics.setObject("myObj", {
-		name : "Appcelerator",
-		product : "Titanium"
-	});
-}
-
-if (!isIOS) {
-	crashlytics.setString("myString", "I'm only with android");
-	crashlytics.setDouble("myDouble", 92.2425);
-	try {
-		throw new Error("Log Handled Exception");
-	} catch(error) {
-		crashlytics.logException(error);
-	}
-}
-
-var button = Ti.UI.createButton({
-	title : "Crash App"
-});
-button.addEventListener("click", function(e) {
-	crashlytics.leaveBreadcrumb("app is crashing now through crash method");
-	crashlytics.crash();
-});
-
-win.add(button); 
-```
+TODO: Enter your license/legal information here.

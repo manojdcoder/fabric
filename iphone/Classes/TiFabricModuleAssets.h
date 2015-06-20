@@ -2,7 +2,7 @@
  * This is a generated file. Do not edit or your changes will be lost
  */
 
-@interface TiCrashlyticsModuleAssets : NSObject
+@interface TiFabricModuleAssets : NSObject
 {
 }
 - (NSData*) moduleAsset;

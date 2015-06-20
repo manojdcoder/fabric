@@ -1,63 +1,39 @@
-var isIOS = Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
+// This is a test harness for your module
+// You should do something interesting in this harness
+// to test out the module and to provide instructions
+// to users on how to use it by example.
 
+
+// open a single window
 var win = Ti.UI.createWindow({
-	backgroundColor : "white"
+	backgroundColor:'white'
 });
-
+var label = Ti.UI.createLabel();
+win.add(label);
 win.open();
 
-var crashlytics = require("ti.crashlytics");
+// TODO: write your module tests here
+var fabric = require('ti.fabric');
+Ti.API.info("module is => " + fabric);
 
-if (isIOS) {
-	crashlytics.setDebugMode(false);
-	crashlytics.init("API_KEY");
-} else {
-	/**
-	 * Key should be set as meta data in manifest section of tiapp.xml
-	 * <android xmlns:android="http://schemas.android.com/apk/res/android">
-	 *   <manifest>
-	 *       <application>
-	 *       	<meta-data android:name="io.fabric.ApiKey" android:value="API_KEY"/>
-	 *       </application>
-	 *   </manifest>
-	 * </android>
-	 **/
-	crashlytics.init();
-}
+label.text = fabric.example();
 
-Ti.API.info("Crashlytics Version : " + crashlytics.version);
+Ti.API.info("module exampleProp is => " + fabric.exampleProp);
+fabric.exampleProp = "This is a test value";
 
-crashlytics.setUserIdentifier("tirocks");
-crashlytics.setUserName("titanium");
-crashlytics.setUserEmail("ti@appc.com");
-
-crashlytics.setInt("myInt", 24);
-crashlytics.setBool("myBool", true);
-crashlytics.setFloat("myFloat", 24.25);
-
-if (isIOS) {
-	crashlytics.setObject("myObj", {
-		name : "Appcelerator",
-		product : "Titanium"
+if (Ti.Platform.name == "android") {
+	var proxy = fabric.createExample({
+		message: "Creating an example Proxy",
+		backgroundColor: "red",
+		width: 100,
+		height: 100,
+		top: 100,
+		left: 150
 	});
+
+	proxy.printMessage("Hello world!");
+	proxy.message = "Hi world!.  It's me again.";
+	proxy.printMessage("Hello world!");
+	win.add(proxy);
 }
 
-if (!isIOS) {
-	crashlytics.setString("myString", "I'm only with android");
-	crashlytics.setDouble("myDouble", 92.2425);
-	try {
-		throw new Error("Log Handled Exception");
-	} catch(error) {
-		crashlytics.logException(error);
-	}
-}
-
-var button = Ti.UI.createButton({
-	title : "Crash App"
-});
-button.addEventListener("click", function(e) {
-	crashlytics.leaveBreadcrumb("app is crashing now through crash method");
-	crashlytics.crash();
-});
-
-win.add(button); 

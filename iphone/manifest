@@ -5,14 +5,14 @@
 version: 1.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
-description: Crashlytics
+description: Fabric Integration
 author: Manoj Kumar
 license: MIT
 copyright: @ 2015
 
 # these should not be edited
-name: crashlytics
-moduleid: ti.crashlytics
-guid: a77fedda-4ecf-4103-b6e2-00af79baab5a
+name: fabric
+moduleid: ti.fabric
+guid: 7fe0637d-73aa-473f-9a83-de32f2b61a43
 platform: iphone
-minsdk: 3.1.3.GA
+minsdk: 3.5.1.GA

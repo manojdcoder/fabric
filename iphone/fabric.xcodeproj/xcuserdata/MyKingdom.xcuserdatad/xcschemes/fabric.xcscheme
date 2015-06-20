@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24416B8111C4CA220047AFDD"
-               BuildableName = "Build &amp; Test"
-               BlueprintName = "Build &amp; Test"
-               ReferencedContainer = "container:crashlytics.xcodeproj">
+               BlueprintIdentifier = "D2AAC07D0554694100DB518D"
+               BuildableName = "libTiFabric.a"
+               BlueprintName = "fabric"
+               ReferencedContainer = "container:fabric.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,10 +42,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24416B8111C4CA220047AFDD"
-            BuildableName = "Build &amp; Test"
-            BlueprintName = "Build &amp; Test"
-            ReferencedContainer = "container:crashlytics.xcodeproj">
+            BlueprintIdentifier = "D2AAC07D0554694100DB518D"
+            BuildableName = "libTiFabric.a"
+            BlueprintName = "fabric"
+            ReferencedContainer = "container:fabric.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -60,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24416B8111C4CA220047AFDD"
-            BuildableName = "Build &amp; Test"
-            BlueprintName = "Build &amp; Test"
-            ReferencedContainer = "container:crashlytics.xcodeproj">
+            BlueprintIdentifier = "D2AAC07D0554694100DB518D"
+            BuildableName = "libTiFabric.a"
+            BlueprintName = "fabric"
+            ReferencedContainer = "container:fabric.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -1,73 +1,106 @@
-#Crashlytics
+Appcelerator Titanium Mobile Module Project
+===========================================
 
-## Description
+This is a skeleton Titanium Mobile Mobile module project.
 
-Add Twitter Fabric / Crashlytics to your app
 
-## Usage
+MODULE NAMING
+-------------
 
-```javascript
-var isIOS = Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
+Choose a unique module id for your module.  This ID usually follows a namespace
+convention using DNS notation.  For example, com.appcelerator.module.test.  This
+ID can only be used once by all public modules in Titanium.
 
-var win = Ti.UI.createWindow({
-	backgroundColor : "white"
-});
 
-win.open();
+GET STARTED
+------------
 
-var crashlytics = require("ti.crashlytics");
+1. Edit manifest with the appropriate details about your module.
+2. Edit LICENSE to add your license details.
+3. Place any assets (such as PNG files) that are required anywhere in the module folder.
+4. Edit the timodule.json and configure desired settings.
+5. Code and build.
 
-if (isIOS) {
-	crashlytics.setDebugMode(false);
-	crashlytics.init("API_KEY");
-} else {
-	/**
-	 * Key should be set as meta data in manifest section of tiapp.xml
-	 * <android xmlns:android="http://schemas.android.com/apk/res/android">
-	 *   <manifest>
-	 *       <application>
-	 *       	<meta-data android:name="io.fabric.ApiKey" android:value="API_KEY"/>
-	 *       </application>
-	 *   </manifest>
-	 * </android>
-	 **/
-	crashlytics.init();
-}
 
-Ti.API.info("Crashlytics Version : " + crashlytics.version);
+DOCUMENTATION FOR YOUR MODULE
+-----------------------------
 
-crashlytics.setUserIdentifier("tirocks");
-crashlytics.setUserName("titanium");
-crashlytics.setUserEmail("ti@appc.com");
+You should provide at least minimal documentation for your module in `documentation` folder using the Markdown syntax.
 
-crashlytics.setInt("myInt", 24);
-crashlytics.setBool("myBool", true);
-crashlytics.setFloat("myFloat", 24.25);
+For more information on the Markdown syntax, refer to this documentation at:
 
-if (isIOS) {
-	crashlytics.setObject("myObj", {
-		name : "Appcelerator",
-		product : "Titanium"
-	});
-}
+<http://daringfireball.net/projects/markdown/>
 
-if (!isIOS) {
-	crashlytics.setString("myString", "I'm only with android");
-	crashlytics.setDouble("myDouble", 92.2425);
-	try {
-		throw new Error("Log Handled Exception");
-	} catch(error) {
-		crashlytics.logException(error);
-	}
-}
 
-var button = Ti.UI.createButton({
-	title : "Crash App"
-});
-button.addEventListener("click", function(e) {
-	crashlytics.leaveBreadcrumb("app is crashing now through crash method");
-	crashlytics.crash();
-});
+TEST HARNESS EXAMPLE FOR YOUR MODULE
+------------------------------------
 
-win.add(button); 
-```
+The `example` directory contains a skeleton application test harness that can be
+used for testing and providing an example of usage to the users of your module.
+
+
+BUILDING YOUR MODULE
+--------------------
+
+Simply run `titanium build --platform <name of platform> --build-type production --dir /path/to/module`.
+You can omit the --dir option if your working directory is in the module's project directory.
+
+
+INSTALL YOUR MODULE
+-------------------
+
+Mac OS X
+--------
+Copy the distribution zip file into the `~/Library/Application Support/Titanium` folder
+
+Linux
+-----
+Copy the distribution zip file into the `~/.titanium` folder
+
+Windows
+-------
+Copy the distribution zip file into the `C:\ProgramData\Titanium` folder
+
+
+REGISTER YOUR MODULE
+--------------------
+
+Register your module with your application by editing `tiapp.xml` and adding your module.
+Example:
+
+<modules>
+	<module version="0.1">ti.fabric</module>
+</modules>
+
+When you run your project, the compiler will combine your module along with its dependencies
+and assets into the application.
+
+
+USING YOUR MODULE IN CODE
+-------------------------
+
+To use your module in code, you will need to require it.
+
+For example,
+
+	var my_module = require('ti.fabric');
+	my_module.foo();
+
+
+TESTING YOUR MODULE
+-------------------
+
+To test with the script, execute:
+
+	titanium run --dir=YOURMODULEDIR
+
+This will execute the app.js in the example folder as a Titanium application.
+
+
+DISTRIBUTING YOUR MODULE
+-------------------------
+
+You can choose to manually distribute your module distribution zip file or through the Titanium Marketplace!
+
+
+Cheers!
