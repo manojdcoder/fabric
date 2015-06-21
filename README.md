@@ -1,106 +1,113 @@
-Appcelerator Titanium Mobile Module Project
-===========================================
+#Twitter Fabric
 
-This is a skeleton Titanium Mobile Mobile module project.
+plugin
+------
+Copy the folder [ti.fabric](./plugins/ti.fabric) to the plugins directory of your app. If it is a classic project you may have to create one. 
 
+Then replace the keys in [ti.fabric/hooks/run.js](./plugins/ti.fabric/cli/hooks/run.js#L6)
 
-MODULE NAMING
--------------
+```
+    API_KEY = 'YOUR_API_KEY',
+    API_SECRET = 'YOUR_API_SECRET', 
+ ```
+ 
+<b>OR</b>
 
-Choose a unique module id for your module.  This ID usually follows a namespace
-convention using DNS notation.  For example, com.appcelerator.module.test.  This
-ID can only be used once by all public modules in Titanium.
+Send the keys as parameters for build command
 
+###example
 
-GET STARTED
-------------
+```appc run --platform ios --fabric-key xxxx --fabric-secret xxx --log-level debug```
 
-1. Edit manifest with the appropriate details about your module.
-2. Edit LICENSE to add your license details.
-3. Place any assets (such as PNG files) that are required anywhere in the module folder.
-4. Edit the timodule.json and configure desired settings.
-5. Code and build.
+<b>Note:</b> By default only production builds are uploaded to fabric dashboard, to make devlopment builds visible you may have to enable it by setting `fabric-enabled` flag to `true`
 
+###example
 
-DOCUMENTATION FOR YOUR MODULE
------------------------------
+```appc run --platform ios --fabric-enabled true --fabric-key xxxx --fabric-secret xxx --log-level debug```
 
-You should provide at least minimal documentation for your module in `documentation` folder using the Markdown syntax.
+tiapp.xml
+---------
+```
+   <ios>
+        <plist>
+            <dict>
+                <key>Fabric</key>
+                <dict>
+                    <key>APIKey</key>
+                    <string>YOUR_API_KEY</string>
+                    <key>Kits</key>
+                    <array>
+                        <dict>
+                            <key>KitInfo</key>
+                            <dict/>
+                            <key>KitName</key>
+                            <string>Crashlytics</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </plist>
+    </ios>
+    ....
+    ....
+    ....
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+        <plugin>ti.fabric</plugin>
+    </plugins>
+```
 
-For more information on the Markdown syntax, refer to this documentation at:
+## Usage
 
-<http://daringfireball.net/projects/markdown/>
+```javascript
+var OS_IOS = Ti.Platform.name == "iPhone OS";
 
+var win = Ti.UI.createWindow({
+	backgroundColor : "white"
+});
+win.open();
 
-TEST HARNESS EXAMPLE FOR YOUR MODULE
-------------------------------------
+var Fabric = require("ti.fabric");
 
-The `example` directory contains a skeleton application test harness that can be
-used for testing and providing an example of usage to the users of your module.
+if (OS_IOS) {
+	Fabric.Crashlytics.setDebugMode(false);
+}
 
+Fabric.init();
 
-BUILDING YOUR MODULE
---------------------
+Ti.API.info("Fabric.Crashlytics.version : " + Fabric.Crashlytics.version);
 
-Simply run `titanium build --platform <name of platform> --build-type production --dir /path/to/module`.
-You can omit the --dir option if your working directory is in the module's project directory.
+Fabric.Crashlytics.setUserIdentifier("tirocks");
+Fabric.Crashlytics.setUserName("titanium");
+Fabric.Crashlytics.setUserEmail("ti@appc.com");
 
+Fabric.Crashlytics.setInt("myInt", 24);
+Fabric.Crashlytics.setBool("myBool", true);
+Fabric.Crashlytics.setFloat("myFloat", 24.25);
 
-INSTALL YOUR MODULE
--------------------
+if (OS_IOS) {
+	Fabric.Crashlytics.setObject("myObj", {
+		name : "Appcelerator",
+		product : "Titanium"
+	});
+}
 
-Mac OS X
---------
-Copy the distribution zip file into the `~/Library/Application Support/Titanium` folder
+if (!OS_IOS) {
+	Fabric.Crashlytics.setString("myString", "I'm only with android");
+	Fabric.Crashlytics.setDouble("myDouble", 92.2425);
+	try {
+		throw new Error("Log Handled Exception");
+	} catch(error) {
+		Fabric.Crashlytics.logException(error);
+	}
+}
 
-Linux
------
-Copy the distribution zip file into the `~/.titanium` folder
-
-Windows
--------
-Copy the distribution zip file into the `C:\ProgramData\Titanium` folder
-
-
-REGISTER YOUR MODULE
---------------------
-
-Register your module with your application by editing `tiapp.xml` and adding your module.
-Example:
-
-<modules>
-	<module version="0.1">ti.fabric</module>
-</modules>
-
-When you run your project, the compiler will combine your module along with its dependencies
-and assets into the application.
-
-
-USING YOUR MODULE IN CODE
--------------------------
-
-To use your module in code, you will need to require it.
-
-For example,
-
-	var my_module = require('ti.fabric');
-	my_module.foo();
-
-
-TESTING YOUR MODULE
--------------------
-
-To test with the script, execute:
-
-	titanium run --dir=YOURMODULEDIR
-
-This will execute the app.js in the example folder as a Titanium application.
-
-
-DISTRIBUTING YOUR MODULE
--------------------------
-
-You can choose to manually distribute your module distribution zip file or through the Titanium Marketplace!
-
-
-Cheers!
+var button = Ti.UI.createButton({
+	title : "Crash App"
+});
+button.addEventListener("click", function(e) {
+	Fabric.Crashlytics.leaveBreadcrumb("app is crashing now through crash method");
+	Fabric.Crashlytics.crash();
+});
+win.add(button);
+```
