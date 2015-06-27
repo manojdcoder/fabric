@@ -7,15 +7,15 @@
 	<classpathentry kind="lib" path="/Users/MyKingdom/Library/Application Support/Titanium/mobilesdk/osx/3.1.3.GA/android/titanium.jar"/>
 	<classpathentry kind="lib" path="/Users/MyKingdom/Library/Application Support/Titanium/mobilesdk/osx/3.1.3.GA/android/kroll-common.jar"/>
 	<classpathentry kind="lib" path="/Users/MyKingdom/Library/Application Support/Titanium/mobilesdk/osx/3.1.3.GA/android/kroll-apt.jar"/>
-	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_answers-classes.jar"/>
-	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_beta-classes.jar"/>
-	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-classes.jar"/>
-	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-core-classes.jar"/>
-	<classpathentry kind="lib" path="android/lib/io-fabric-sdk-android_fabric-classes.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_answers-classes.jar"/>
+	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_beta-classes.jar"/>
+	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-classes.jar"/>
+	<classpathentry kind="lib" path="android/lib/com-crashlytics-sdk-android_crashlytics-core-classes.jar"/>
+	<classpathentry kind="lib" path="android/lib/io-fabric-sdk-android_fabric-classes.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

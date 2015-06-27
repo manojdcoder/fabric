@@ -13,108 +13,33 @@ import io.fabric.sdk.android.Fabric;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
-import org.appcelerator.titanium.util.TiConvert;
 import org.appcelerator.kroll.common.Log;
 
 import com.crashlytics.android.Crashlytics;
 
-@Kroll.module(name="Fabric", id="ti.fabric")
-public class FabricModule extends KrollModule
-{
+@Kroll.module(name = "Fabric", id = "ti.fabric")
+public class FabricModule extends KrollModule {
 
 	// Standard Debugging variables
 	private static final String LCAT = "FabricModule";
+	
+	public static boolean debuggable = false;
 
-	public FabricModule()
-	{
+	public FabricModule() {
 		super();
 	}
 
 	@Kroll.onAppCreate
-	public static void onAppCreate(TiApplication app)
-	{
+	public static void onAppCreate(TiApplication app) {
 		Log.d(LCAT, "inside onAppCreate");
-		// put module init code that needs to run when the application is created
+		// put module init code that needs to run when the application is
+		// created
 	}
 
 	@Kroll.method
-	public void init()
-	{
-		Fabric.with(TiApplication.getInstance(), new Crashlytics());
-	}
-	
-	@Kroll.method @Kroll.getProperty
-	public String getVersion()
-	{
-		return Crashlytics.getInstance().core.getVersion();
-	}
-	
-	@Kroll.method
-	public void crash()
-	{
-		Crashlytics.getInstance().core.crash();
-	}
-	
-	@Kroll.method
-	public void logException(Object error)
-	{
-		if(error instanceof Throwable){
-			Crashlytics.getInstance().core.logException((Throwable) error);	
-		}
-	}
-	
-	@Kroll.method
-	public void leaveBreadcrumb(String value)
-	{
-		Crashlytics.getInstance().core.log(value);
-	}
-	
-	@Kroll.method
-	public void setUserIdentifier(String value)
-	{
-		Crashlytics.getInstance().core.setUserIdentifier(value);
-	}
-	
-	@Kroll.method
-	public void setUserName(String value)
-	{
-		Crashlytics.getInstance().core.setUserName(value);
-	}
-	
-	@Kroll.method
-	public void setUserEmail(String value)
-	{
-		Crashlytics.getInstance().core.setUserEmail(value);
-	}
-	
-	@Kroll.method
-	public void setInt(String key, Object value)
-	{
-		Crashlytics.getInstance().core.setInt(key, TiConvert.toInt(value));
-	}
-	
-	@Kroll.method
-	public void setFloat(String key, Object value)
-	{
-		Crashlytics.getInstance().core.setFloat(key, TiConvert.toFloat(value));
-	}
-	
-	@Kroll.method
-	public void setDouble(String key, Object value)
-	{
-		Crashlytics.getInstance().core.setDouble(key, TiConvert.toDouble(value));
-	}
-	
-	@Kroll.method
-	public void setBool(String key, Object value)
-	{
-		Crashlytics.getInstance().core.setBool(key, TiConvert.toBoolean(value));
-	}
-	
-	@Kroll.method
-	public void setString(String key, Object value)
-	{
-		Crashlytics.getInstance().core.setString(key, TiConvert.toString(value));
+	public void init() {
+		final Fabric fabric = new Fabric.Builder(TiApplication.getInstance())
+				.kits(new Crashlytics()).debuggable(debuggable).build();
+		Fabric.with(fabric);
 	}
 }
-
