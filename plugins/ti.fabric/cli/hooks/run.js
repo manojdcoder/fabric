@@ -19,12 +19,12 @@ exports.init = function(logger, config, cli, appc) {
 
 		var projectDir = cli.argv['project-dir'];
 
-		if (cli.argv['platform'] == 'ios') {
+		if (cli.argv['platform'] == 'ios' || cli.argv['platform'] == 'iphone' || cli.argv['platform'] == 'ipad') {
 
 			var modules = cli.tiapp.modules;
 			for (var i in modules) {
 				var module = modules[i];
-				if (module.id == 'ti.fabric') {
+				if (module.id == 'ti.fabric' && module.version) {
 					VERSION = module.version;
 					break;
 				}
