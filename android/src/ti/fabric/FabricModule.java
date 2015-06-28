@@ -37,9 +37,14 @@ public class FabricModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public void init() {
-		final Fabric fabric = new Fabric.Builder(TiApplication.getInstance())
-				.kits(new Crashlytics()).debuggable(debuggable).build();
-		Fabric.with(fabric);
+	public boolean init() {
+		try{
+			final Fabric fabric = new Fabric.Builder(TiApplication.getInstance()).kits(new Crashlytics()).debuggable(debuggable).build();
+			Fabric.with(fabric);
+			return true;
+		}catch(Exception exp){
+			Log.e(LCAT, exp.getMessage());
+			return false;
+		}
 	}
 }

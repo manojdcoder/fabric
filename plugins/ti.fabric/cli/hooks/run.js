@@ -79,12 +79,18 @@ exports.init = function(logger, config, cli, appc) {
 						logger.debug(TAG + ' : ' + ' processing fabric for android');
 
 						var buildDir = projectDir + '/build/android/',
+						    srcFabricProperties = projectDir + '/plugins/ti.fabric/android/fabric.properties',
+						    srcKitsProperties = projectDir + '/plugins/ti.fabric/android/kits.properties',
 						    srcCustomRules = projectDir + '/plugins/ti.fabric/android/custom_rules.xml',
 						    srcCrashlyticsFld = projectDir + '/plugins/ti.fabric/android/crashlytics';
 
+						fs.writeFileSync(buildDir + 'fabric.properties', fs.readFileSync(srcFabricProperties).toString().replace("API_SECRET", (cli.argv['fabric-secret'] || API_SECRET)));
+
 						fs.writeFileSync(buildDir + 'custom_rules.xml', fs.readFileSync(srcCustomRules).toString().replace("PROJECT_NAME", cli.tiapp.name));
 
-						require('fs-extra').copySync(srcCrashlyticsFld, buildDir + 'crashlytics');
+						var fse = require('fs-extra');
+						fse.copySync(srcKitsProperties, buildDir + 'kits.properties');
+						fse.copySync(srcCrashlyticsFld, buildDir + 'crashlytics');
 
 						done();
 
