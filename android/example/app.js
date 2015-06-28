@@ -1,39 +1,65 @@
-// This is a test harness for your module
-// You should do something interesting in this harness
-// to test out the module and to provide instructions
-// to users on how to use it by example.
+var OS_IOS = Ti.Platform.name == "iPhone OS";
 
-
-// open a single window
 var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+	backgroundColor : "white"
 });
-var label = Ti.UI.createLabel();
-win.add(label);
 win.open();
 
-// TODO: write your module tests here
-var fabric = require('ti.fabric');
-Ti.API.info("module is => " + fabric);
+var Fabric = require("ti.fabric");
 
-label.text = fabric.example();
+//debug mode is false by default
+Fabric.Crashlytics.setDebugMode(false);
 
-Ti.API.info("module exampleProp is => " + fabric.exampleProp);
-fabric.exampleProp = "This is a test value";
+//returns true if initialization is successful (only on android)
+var initated = Fabric.init();
 
-if (Ti.Platform.name == "android") {
-	var proxy = fabric.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
+Ti.API.info("Fabric.Crashlytics.version : " + Fabric.Crashlytics.version);
 
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
+if (OS_IOS || initated) {
+
+	Fabric.Crashlytics.setUserIdentifier("tirocks");
+	Fabric.Crashlytics.setUserName("titanium");
+	Fabric.Crashlytics.setUserEmail("ti@appc.com");
+
+	Fabric.Crashlytics.setInt("myInt", 24);
+	Fabric.Crashlytics.setBool("myBool", true);
+	Fabric.Crashlytics.setFloat("myFloat", 24.25);
+
+	if (OS_IOS) {
+		Fabric.Crashlytics.setObject("myObj", {
+			name : "Appcelerator",
+			product : "Titanium"
+		});
+	} else {
+		Fabric.Crashlytics.setString("myString", "I'm only with android");
+		Fabric.Crashlytics.setDouble("myDouble", 92.2425);
+		try {
+			throw new Error("Log Handled Exception");
+		} catch(error) {
+			Fabric.Crashlytics.logException(error);
+		}
+	}
+
+} else {
+
+	Ti.API.error("Something wrong with your fabric configuration");
+
 }
 
+var button = Ti.UI.createButton({
+	title : "Crash App"
+});
+button.addEventListener("click", function(e) {
+	if (OS_IOS || initated) {
+		if (!OS_IOS) {
+			Fabric.Crashlytics.leaveBreadcrumb({
+				level : Fabric.Crashlytics.LOG_LEVEL_ERROR,
+				tag : "Example",
+				message : "only on android"
+			});
+		}
+		Fabric.Crashlytics.leaveBreadcrumb("app is crashing now through crash method");
+		Fabric.Crashlytics.crash();
+	}
+});
+win.add(button);

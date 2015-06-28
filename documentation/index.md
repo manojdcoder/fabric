@@ -1,39 +1,140 @@
-# fabric Module
+#Twitter Fabric
 
-## Description
+<b>Note: iOS module is working fine but the android module is still under construction, not ready for use at the moment.</b>
 
-TODO: Enter your module description here
+plugin
+------
+Copy the folder [ti.fabric](./plugins/ti.fabric) to the plugins directory of your app. If it is a classic project you may have to create one. 
 
-## Accessing the fabric Module
+Then replace the keys in [ti.fabric/hooks/run.js](./plugins/ti.fabric/cli/hooks/run.js#L6)
 
-To access this module from JavaScript, you would do the following:
+```
+    API_KEY = 'YOUR_API_KEY',
+    API_SECRET = 'YOUR_API_SECRET', 
+ ```
+ 
+<b>OR</b>
 
-    var fabric = require("ti.fabric");
+Send the keys as parameters for build command
 
-The fabric variable is a reference to the Module object.
+###example
 
-## Reference
+```appc run --platform ios --fabric-key xxxx --fabric-secret xxx --log-level debug```
 
-TODO: If your module has an API, you should document
-the reference here.
+<b>Note:</b> By default only production builds are uploaded to fabric dashboard, to make devlopment builds visible you may have to enable it by setting `fabric-enabled` flag to `true`
 
-### fabric.function
+###example
 
-TODO: This is an example of a module function.
+```appc run --platform ios --fabric-enabled true --fabric-key xxxx --fabric-secret xxx --log-level debug```
 
-### fabric.property
-
-TODO: This is an example of a module property.
+tiapp.xml
+---------
+```
+   <ios>
+        <plist>
+            <dict>
+                <key>Fabric</key>
+                <dict>
+                    <key>APIKey</key>
+                    <string>YOUR_API_KEY</string>
+                    <key>Kits</key>
+                    <array>
+                        <dict>
+                            <key>KitInfo</key>
+                            <dict/>
+                            <key>KitName</key>
+                            <string>Crashlytics</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </plist>
+    </ios>
+    ....
+    ....
+    ....
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+            <application>
+            	<meta-data android:name="io.fabric.ApiKey" android:value="YOUR_API_KEY" />
+            </application>
+        </manifest>
+    </android>
+    ....
+    ....
+    ....
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+        <plugin>ti.fabric</plugin>
+    </plugins>
+```
 
 ## Usage
 
-TODO: Enter your usage example here
+```javascript
+var OS_IOS = Ti.Platform.name == "iPhone OS";
 
-## Author
+var win = Ti.UI.createWindow({
+	backgroundColor : "white"
+});
+win.open();
 
-TODO: Enter your author name, email and other contact
-details you want to share here.
+var Fabric = require("ti.fabric");
 
-## License
+//debug mode is false by default
+Fabric.Crashlytics.setDebugMode(false);
 
-TODO: Enter your license/legal information here.
+//returns true if initialization is successful (only on android)
+var initated = Fabric.init();
+
+Ti.API.info("Fabric.Crashlytics.version : " + Fabric.Crashlytics.version);
+
+if (OS_IOS || initated) {
+
+	Fabric.Crashlytics.setUserIdentifier("tirocks");
+	Fabric.Crashlytics.setUserName("titanium");
+	Fabric.Crashlytics.setUserEmail("ti@appc.com");
+
+	Fabric.Crashlytics.setInt("myInt", 24);
+	Fabric.Crashlytics.setBool("myBool", true);
+	Fabric.Crashlytics.setFloat("myFloat", 24.25);
+
+	if (OS_IOS) {
+		Fabric.Crashlytics.setObject("myObj", {
+			name : "Appcelerator",
+			product : "Titanium"
+		});
+	} else {
+		Fabric.Crashlytics.setString("myString", "I'm only with android");
+		Fabric.Crashlytics.setDouble("myDouble", 92.2425);
+		try {
+			throw new Error("Log Handled Exception");
+		} catch(error) {
+			Fabric.Crashlytics.logException(error);
+		}
+	}
+
+} else {
+
+	Ti.API.error("Something wrong with your fabric configuration");
+
+}
+
+var button = Ti.UI.createButton({
+	title : "Crash App"
+});
+button.addEventListener("click", function(e) {
+	if (OS_IOS || initated) {
+		if (!OS_IOS) {
+			Fabric.Crashlytics.leaveBreadcrumb({
+				level : Fabric.Crashlytics.LOG_LEVEL_ERROR,
+				tag : "Example",
+				message : "only on android"
+			});
+		}
+		Fabric.Crashlytics.leaveBreadcrumb("app is crashing now through crash method");
+		Fabric.Crashlytics.crash();
+	}
+});
+win.add(button);
+```
