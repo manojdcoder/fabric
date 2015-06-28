@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="AndroidTestApp" default="help">
+<project name="PROJECT_NAME" default="help">
     <!-- See the instructions at the top of crashlytics_build.xml
          for information about nonstandard builds. -->
     
