@@ -7,10 +7,12 @@
 
 #import "TiModule.h"
 #import "TiCrashlyticsModule.h"
+#import "TiAnswersModule.h"
 
 @interface TiFabricModule : TiModule
 {
     TiCrashlyticsModule *crashlytics;
+	TiAnswersModule *answers;
 }
 
 @end

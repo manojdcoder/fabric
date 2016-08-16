@@ -9,7 +9,7 @@
 package ti.fabric;
 
 import java.util.HashMap;
-
+/*
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiC;
@@ -131,3 +131,4 @@ public class CrashlyticsModule extends KrollModule {
 	}
 
 }
+*/

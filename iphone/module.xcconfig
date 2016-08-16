@@ -24,6 +24,10 @@
 //
 //
 // IMPORTANT NOTE: always use $(inherited) in your overrides
-// 
-FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.fabric/1.0/platform
+//
+
+//!! Warning custom defines are visible to ALL modules, so same names can cause conflicts. Using module name + _VER here!!
+TI_FABRIC_VER=1.0.1 
+
+FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.fabric/$(TI_FABRIC_VER)/platform
 OTHER_LDFLAGS=$(inherited) -framework Fabric -framework Crashlytics
