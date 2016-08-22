@@ -137,4 +137,49 @@ button.addEventListener("click", function(e) {
 	}
 });
 win.add(button);
+
+
+var logSignupBtn = Ti.UI.createButton({
+	title : “Log Signup Event”
+});
+logSignupBtn.addEventListener("click", function(e) {
+
+	Fabric.Answers.logSignUpWithMethod({
+		method:’signup-button’,
+		success: true
+	});
+});
+win.add(logSignupBtn);
+
+
+var logPurchaseBtn = Ti.UI.createButton({
+	title : “Log Purchase Event”
+});
+logPurchaseBtn.addEventListener("click", function(e) {
+
+   Fabric.Answers.logPurchaseWithPrice({
+	‘itemPrice’: ’22.99’,
+	‘currency’: ‘USD’,
+	‘success’: true,
+	‘itemName’: ‘Answers Shirt’,
+	‘itemType’: ‘Apparel’,
+	‘itemId’: ’sku-350’
+	‘customAttributes’: {'demoName' : 'demoValue'}
+   });
+
+});
+win.add(logPurchaseBtn);
+
+var logCustomEventBtn = Ti.UI.createButton({
+	title : “Log Custom Event”
+});
+logCustomEventBtn.addEventListener("click", function(e) {
+
+   Fabric.Answers.logCustomEventWithName({
+	‘name’: ’SomeCustomEventName’,
+	‘customAttributes’: {‘customEvtName' : ‘customValue'}
+   });
+
+});
+win.add(logCustomEventBtn);
 ```
