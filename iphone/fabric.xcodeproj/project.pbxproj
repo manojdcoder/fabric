@@ -32,6 +32,8 @@
 		4350A2C01B2E0D6700E1CDE9 /* TiCrashlyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */; };
 		AA747D9F0F9514B9006C5449 /* TiFabric_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiFabric_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		C039E62C1D5BBCFA00B323A4 /* TiAnswersModule.h in Headers */ = {isa = PBXBuildFile; fileRef = C039E62B1D5BBCFA00B323A4 /* TiAnswersModule.h */; };
+		C039E62E1D5BBD2600B323A4 /* TiAnswersModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C039E62D1D5BBD2600B323A4 /* TiAnswersModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCrashlyticsModule.m; path = Classes/TiCrashlyticsModule.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiFabric_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiFabric_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C039E62B1D5BBCFA00B323A4 /* TiAnswersModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiAnswersModule.h; path = Classes/TiAnswersModule.h; sourceTree = "<group>"; };
+		C039E62D1D5BBD2600B323A4 /* TiAnswersModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiAnswersModule.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libTiFabric.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiFabric.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 				24DD6CF81134B3F500162E58 /* TiFabricModule.m */,
 				4350A2BD1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h */,
 				4350A2BE1B2E0D6700E1CDE9 /* TiCrashlyticsModule.m */,
+				C039E62B1D5BBCFA00B323A4 /* TiAnswersModule.h */,
+				C039E62D1D5BBD2600B323A4 /* TiAnswersModule.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -132,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* TiFabric_Prefix.pch in Headers */,
+				C039E62C1D5BBCFA00B323A4 /* TiAnswersModule.h in Headers */,
 				24DD6CF91134B3F500162E58 /* TiFabricModule.h in Headers */,
 				4350A2BF1B2E0D6700E1CDE9 /* TiCrashlyticsModule.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiFabricModuleAssets.h in Headers */,
@@ -164,7 +171,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "fabric" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -210,6 +217,7 @@
 			files = (
 				4350A2C01B2E0D6700E1CDE9 /* TiCrashlyticsModule.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* TiFabricModule.m in Sources */,
+				C039E62E1D5BBD2600B323A4 /* TiAnswersModule.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiFabricModuleAssets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +321,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DSTROOT = /tmp/TiFabric.dst;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

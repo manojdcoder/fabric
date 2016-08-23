@@ -65,6 +65,7 @@
 	// optionally release any resources that can be dynamically
 	// reloaded once memory is available - such as caches
     RELEASE_TO_NIL(crashlytics);
+	RELEASE_TO_NIL(answers);
 	[super didReceiveMemoryWarning:notification];
 }
 
@@ -85,4 +86,12 @@
     return crashlytics;
 }
 
+-(TiAnswersModule*)Answers
+{
+    if (answers==nil)
+    {
+        return [[[TiAnswersModule alloc] _initWithPageContext:[self executionContext]] autorelease];
+    }
+    return answers;
+}
 @end

@@ -9,7 +9,7 @@
 package ti.fabric;
 
 import io.fabric.sdk.android.Fabric;
-
+/*
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
@@ -48,3 +48,4 @@ public class FabricModule extends KrollModule {
 		}
 	}
 }
+*/
