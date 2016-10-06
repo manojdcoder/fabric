@@ -8,3 +8,10 @@ android/assets
 android/LICENSE
 iphone/build/
 build.log
+.idea/.name
+.idea/encodings.xml
+.idea/fabric-manojdcoder.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
