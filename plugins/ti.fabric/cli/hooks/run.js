@@ -36,12 +36,12 @@ exports.init = function(logger, config, cli, appc) {
 
 					try {
 
-						logger.debug(TAG + ' : ' + ' processing fabric for ios');
+						logger.debug(TAG + ' : ' + ' processing fabric for ios - version ' + VERSION);
 
 						var pbxprojPath = projectDir + '/build/iphone/' + cli.tiapp.name + '.xcodeproj/project.pbxproj',
 						    pbxprojStr = fs.readFileSync(pbxprojPath).toString(),
 						    sectionName = 'Post-Compile',
-						    shellScript = '\\nchmod 755 ../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run\\n../../modules/iphone/ti.fabric/1.0/platform/Fabric.framework/run ' + (cli.argv['fabric-key'] || API_KEY) + ' ' + (cli.argv['fabric-secret'] || API_SECRET);
+						    shellScript = '\\nchmod 755 ../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run\\n../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run ' + (cli.argv['fabric-key'] || API_KEY) + ' ' + (cli.argv['fabric-secret'] || API_SECRET);
 
 						var p = 0;
 						while (p !== -1) {
