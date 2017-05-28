@@ -1,4 +1,4 @@
-#Twitter Fabric
+# Twitter Fabric (This repo is stopped to maintain)
 
 <b>Note: iOS module is working fine but the android module is still under construction, not ready for use at the moment.</b>
 
