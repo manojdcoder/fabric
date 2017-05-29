@@ -32,26 +32,61 @@ exports.init = function(logger, config, cli, appc) {
 
 			cli.on('build.ios.xcodebuild', {
 
+
 				pre : function(build, done) {
+
+					logger.debug('executing build.ios.xcodebuild pre hook');
 
 					try {
 
 						logger.debug(TAG + ' : ' + ' processing fabric for ios - version ' + VERSION);
 
 						var pbxprojPath = projectDir + '/build/iphone/' + cli.tiapp.name + '.xcodeproj/project.pbxproj',
-						    pbxprojStr = fs.readFileSync(pbxprojPath).toString(),
-						    sectionName = 'Post-Compile',
-						    shellScript = '\\nchmod 755 ../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run\\n../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run ' + (cli.argv['fabric-key'] || API_KEY) + ' ' + (cli.argv['fabric-secret'] || API_SECRET);
+							pbxprojStr = fs.readFileSync(pbxprojPath).toString(),
+							shellScript = '\\nchmod 755 ../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run\\n../../modules/iphone/ti.fabric/' + VERSION + '/platform/Fabric.framework/run ' + (cli.argv['fabric-key'] || API_KEY) + ' ' + (cli.argv['fabric-secret'] || API_SECRET);
 
+						var OUR_UNIQUE_KEY = '636363C2C2C2C2C2C2C2C2C2';
 						var p = 0;
-						while (p !== -1) {
-							p = pbxprojStr.indexOf('name = "' + sectionName + '"', p);
-							if (p !== -1) {
-								p = pbxprojStr.indexOf('shellScript = ', p);
-								if (p !== -1) {
-									pbxprojStr = pbxprojStr.substring(0, p) + 'shellScript = "' + pbxprojStr.substring(p + 'shellScript = '.length + 1, pbxprojStr.indexOf('\n', p) - 2) + shellScript + '";' + pbxprojStr.substring(pbxprojStr.indexOf('\n', p));
+
+						p = pbxprojStr.indexOf('Begin PBXNativeTarget section', p);
+
+						if(p !== -1){
+							var endPbxNativeTargetSectionIndex = pbxprojStr.indexOf('End PBXNativeTarget section', p);
+
+							p = pbxprojStr.indexOf('buildPhases', p);
+							if(p !== -1 && p < endPbxNativeTargetSectionIndex){
+								logger.debug('adding the build phase');
+
+								var targetClosingBracketIndex = pbxprojStr.indexOf(');', p);
+								pbxprojStr = pbxprojStr.substring(0, targetClosingBracketIndex-1) + OUR_UNIQUE_KEY + ' /* ShellScript */, \n' + pbxprojStr.substring(targetClosingBracketIndex);
+
+								// okay, now add the script
+								p = pbxprojStr.indexOf('/* End PBXShellScriptBuildPhase section */', p);
+
+								if(p == -1){
+									throw 'no PBXShellScriptBuildPhase section found'
 								}
+
+								var shellScriptSection = '\n' + OUR_UNIQUE_KEY + ' /* ShellScript */ = {\n' +
+									'isa = PBXShellScriptBuildPhase;\n' +
+									'buildActionMask = 2147483647;\n' +
+									'files = (\n' +
+									');\n' +
+									'inputPaths = (\n' +
+									');\n' +
+									'outputPaths = (\n' +
+									');\n' +
+									'runOnlyForDeploymentPostprocessing = 0;\n' +
+									'shellPath = /bin/sh;\n' +
+									'shellScript = "' + shellScript + '";\n};\n' ;
+
+								pbxprojStr = pbxprojStr.substring(0, p-1) + shellScriptSection + pbxprojStr.substring(p);
+
+							} else {
+								throw 'no PBXProject.targets found';
 							}
+						} else {
+							throw 'no PBXProject section found. Operation aborted.';
 						}
 
 						fs.writeFileSync(pbxprojPath, pbxprojStr);
@@ -79,10 +114,10 @@ exports.init = function(logger, config, cli, appc) {
 						logger.debug(TAG + ' : ' + ' processing fabric for android');
 
 						var buildDir = projectDir + '/build/android/',
-						    srcFabricProperties = projectDir + '/plugins/ti.fabric/android/fabric.properties',
-						    srcKitsProperties = projectDir + '/plugins/ti.fabric/android/kits.properties',
-						    srcCustomRules = projectDir + '/plugins/ti.fabric/android/custom_rules.xml',
-						    srcCrashlyticsFld = projectDir + '/plugins/ti.fabric/android/crashlytics';
+							srcFabricProperties = projectDir + '/plugins/ti.fabric/android/fabric.properties',
+							srcKitsProperties = projectDir + '/plugins/ti.fabric/android/kits.properties',
+							srcCustomRules = projectDir + '/plugins/ti.fabric/android/custom_rules.xml',
+							srcCrashlyticsFld = projectDir + '/plugins/ti.fabric/android/crashlytics';
 
 						fs.writeFileSync(buildDir + 'fabric.properties', fs.readFileSync(srcFabricProperties).toString().replace("API_SECRET", (cli.argv['fabric-secret'] || API_SECRET)));
 
@@ -105,6 +140,8 @@ exports.init = function(logger, config, cli, appc) {
 
 		}
 
+	} else {
+		logger.error('Fabric not enabled for this build');
 	}
 
 };
